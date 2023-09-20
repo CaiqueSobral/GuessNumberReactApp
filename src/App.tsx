@@ -1,13 +1,10 @@
 import { registerRootComponent } from 'expo';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import HomePage from './pages/homePage';
 
 export function App() {
-  return (
-    <View className="flex-1 bg-white items-center justify-center">
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
-  );
+  return <HomePage />;
 }
 
 registerRootComponent(App);
