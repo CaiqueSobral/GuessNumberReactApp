@@ -65,15 +65,15 @@ export default function GamePage() {
       <View
         className={`self-center w-[90%] h-[30%] mt-[${Math.floor(
           insets.top,
-        )}] flex-col items-center justify-center rounded-xl bg-[#3b021f] shadow-2xl`}
+        )}] flex-col items-center justify-center rounded-xl bg-primary shadow-2xl`}
       >
-        <Text className="text-[#ddb52f] text-3xl">Make Your Guess</Text>
+        <Text className="text-secondary text-3xl">Make Your Guess</Text>
         <TextInput
           maxLength={2}
           keyboardType="number-pad"
           autoCapitalize="none"
           autoCorrect={false}
-          className="border-b-2 mb-8 px-4 text-3xl text-[#ddb52f] border-[#ddb52f]"
+          className="border-b-2 mb-8 px-4 text-3xl text-secondary border-secondary"
           onChangeText={numberInputHandler}
           value={enteredNumber}
         ></TextInput>
@@ -84,7 +84,7 @@ export default function GamePage() {
         className="flex-1 mt-[5%]"
         renderItem={(guessedNumbers) => {
           return (
-            <View className="w-[90%] self-center bg-[#ddb52f] border-2 border-slate-900 mb-2 rounded-full shadow-2xl">
+            <View className="w-[90%] self-center bg-secondary border-2 border-slate-900 mb-2 rounded-full shadow-2xl">
               <Text className="text-center text-lg">{`The number is actually ${
                 guessedNumbers.item.guessedNumber > randomNumber
                   ? 'lower'
