@@ -8,14 +8,17 @@ type GuessesNumbers = {
   id: number;
 };
 
-const randomNumber = Math.floor(Math.random() * 99) + 1;
-
 export default function GamePage() {
   const insets = useSafeAreaInsets();
+  const [randomNumber, setRandomNumber] = useState(0);
   const [enteredNumber, setEnteredNumber] = useState('');
   const [guessedNumbers, setGuessedNumbers] = useState<Array<GuessesNumbers>>(
     [],
   );
+
+  if (randomNumber === 0) {
+    setRandomNumber(Math.floor(Math.random() * 99) + 1);
+  }
 
   const addGuessedNumber = (guessedNumber: number) => {
     setGuessedNumbers((oldGuessedNumbers) => {
@@ -46,6 +49,8 @@ export default function GamePage() {
         'Number has to be a number between 1 and 99',
         [{ text: 'Okay', style: 'destructive', onPress: resetInputHandler }],
       );
+
+      return;
     }
 
     console.log(randomNumber);
@@ -53,7 +58,6 @@ export default function GamePage() {
     if (chosenNumber === randomNumber) console.log('You guessed it!!!!!');
 
     addGuessedNumber(chosenNumber);
-    return;
   };
 
   return (
@@ -82,7 +86,9 @@ export default function GamePage() {
           return (
             <View className="w-[90%] self-center bg-[#ddb52f] border-2 border-slate-900 mb-2 rounded-full shadow-2xl">
               <Text className="text-center text-lg">{`The number is actually ${
-                parseInt(enteredNumber) > randomNumber ? 'bigger' : 'lower'
+                guessedNumbers.item.guessedNumber > randomNumber
+                  ? 'lower'
+                  : 'bigger'
               } than #${guessedNumbers.item.guessedNumber}`}</Text>
             </View>
           );
