@@ -5,10 +5,10 @@ type ComponentWithProps = React.PropsWithChildren<{}>;
 
 export default function PrimaryButton({ children }: ComponentWithProps) {
   return (
-    <View className="flex-1 justify-center items-center">
-      <TouchableOpacity className="flex justify-center items-center h-[12%] px-[15%] rounded-full bg-neutral-800 shadow-md">
-        <Text className="text-4xl text-gray-100">{children}</Text>
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity className="flex justify-center items-center py-[4%] px-[15%] rounded-full bg-[#39031e] shadow-md">
+      <Text className="text-2xl font-bold text-gray-100 uppercase">
+        {children}
+      </Text>
+    </TouchableOpacity>
   );
 }

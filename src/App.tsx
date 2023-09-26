@@ -1,9 +1,10 @@
 import { registerRootComponent } from 'expo';
 import React from 'react';
 import HomePage from './pages/HomePage';
+import GamePage from './pages/GamePage';
 
 export function App() {
-  return <HomePage />;
+  return <GamePage />;
 }
 
 registerRootComponent(App);
