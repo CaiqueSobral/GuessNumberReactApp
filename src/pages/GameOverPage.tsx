@@ -1,4 +1,3 @@
-import { NativeStackNavigatorProps } from '@react-navigation/native-stack/lib/typescript/src/types';
 import PrimaryButton from '../components/PrimaryButton';
 import React from 'react';
 import { Text, View } from 'react-native';

@@ -5,7 +5,6 @@ import { ImageBackground, Platform } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import RootNavigator from './routes/Index';
 import { NavigationContainer } from '@react-navigation/native';
-import { KeyboardAvoidingView } from 'react-native';
 
 export function App() {
   return (
