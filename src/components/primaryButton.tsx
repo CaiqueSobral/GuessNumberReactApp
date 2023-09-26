@@ -11,7 +11,7 @@ export default function PrimaryButton(props: Props) {
       className="flex justify-center items-center py-[4%] px-[15%] rounded-full bg-primaryShade shadow-md"
       onPress={props.onPress}
     >
-      <Text className="text-xl font-bold text-gray-100 uppercase">
+      <Text className="text-xl font-bold text-primaryText uppercase">
         {props.children}
       </Text>
     </TouchableOpacity>
