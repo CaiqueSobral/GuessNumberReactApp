@@ -1,13 +1,18 @@
 import React from 'react';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Text, TouchableOpacity } from 'react-native';
 
-type ComponentWithProps = React.PropsWithChildren<{}>;
-
-export default function PrimaryButton({ children }: ComponentWithProps) {
+type Props = {
+  children: string | JSX.Element;
+  onPress?: () => void;
+};
+export default function PrimaryButton(props: Props) {
   return (
-    <TouchableOpacity className="flex justify-center items-center py-[4%] px-[15%] rounded-full bg-[#39031e] shadow-md">
-      <Text className="text-2xl font-bold text-gray-100 uppercase">
-        {children}
+    <TouchableOpacity
+      className="flex justify-center items-center py-[4%] px-[15%] rounded-full bg-[#72063c] shadow-md"
+      onPress={props.onPress}
+    >
+      <Text className="text-xl font-bold text-gray-100 uppercase">
+        {props.children}
       </Text>
     </TouchableOpacity>
   );
