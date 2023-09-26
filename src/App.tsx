@@ -1,11 +1,11 @@
 import { registerRootComponent } from 'expo';
 import React from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
-import { ImageBackground } from 'react-native';
+import { ImageBackground, Platform } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import RootNavigator from './routes/Index';
 import { NavigationContainer } from '@react-navigation/native';
-import HomePage from './pages/HomePage';
+import { KeyboardAvoidingView } from 'react-native';
 
 export function App() {
   return (
