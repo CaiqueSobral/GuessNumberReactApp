@@ -1,7 +1,7 @@
 import PrimaryButton from '../components/PrimaryButton';
 import React, { useState } from 'react';
 import { TextInput, View, Text, Alert, FlatList } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 type GuessesNumbers = {
   guessedNumber: number;
@@ -9,7 +9,6 @@ type GuessesNumbers = {
 };
 
 export default function GamePage() {
-  const insets = useSafeAreaInsets();
   const [randomNumber, setRandomNumber] = useState(0);
   const [enteredNumber, setEnteredNumber] = useState('');
   const [guessedNumbers, setGuessedNumbers] = useState<Array<GuessesNumbers>>(
@@ -61,11 +60,9 @@ export default function GamePage() {
   };
 
   return (
-    <View className="flex-1 p-[2%]">
+    <SafeAreaView className="flex-1 p-[2%]">
       <View
-        className={`self-center w-[90%] h-[30%] mt-[${Math.floor(
-          insets.top,
-        )}] flex-col items-center justify-center rounded-xl bg-primary shadow-2xl`}
+        className={`self-center w-[90%] h-[30%] mt-[2%] flex-col items-center justify-center rounded-xl bg-primary shadow-2xl`}
       >
         <Text className="text-secondary text-3xl">Make Your Guess</Text>
         <TextInput
@@ -94,6 +91,6 @@ export default function GamePage() {
           );
         }}
       />
-    </View>
+    </SafeAreaView>
   );
 }
