@@ -72,8 +72,6 @@ export default function GamePage({ navigation }: any) {
       return;
     }
 
-    console.log(randomNumber);
-
     if (chosenNumber === randomNumber) {
       resetInputHandler();
       resetGuessedNumbersList();
