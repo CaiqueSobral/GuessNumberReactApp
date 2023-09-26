@@ -1,3 +1,4 @@
+import { useIsFocused } from '@react-navigation/native';
 import PrimaryButton from '../components/PrimaryButton';
 import React, { useState } from 'react';
 import { TextInput, View, Text, Alert, FlatList } from 'react-native';
@@ -8,16 +9,23 @@ type GuessesNumbers = {
   id: number;
 };
 
-export default function GamePage() {
+export default function GamePage({ navigation }: any) {
+  const isFocused = useIsFocused();
+  React.useEffect(() => {
+    if (isFocused) {
+      startGame();
+    }
+  }, [isFocused]);
+
   const [randomNumber, setRandomNumber] = useState(0);
   const [enteredNumber, setEnteredNumber] = useState('');
   const [guessedNumbers, setGuessedNumbers] = useState<Array<GuessesNumbers>>(
     [],
   );
 
-  if (randomNumber === 0) {
+  const startGame = () => {
     setRandomNumber(Math.floor(Math.random() * 99) + 1);
-  }
+  };
 
   const addGuessedNumber = (guessedNumber: number) => {
     setGuessedNumbers((oldGuessedNumbers) => {
@@ -39,6 +47,10 @@ export default function GamePage() {
     setEnteredNumber('');
   };
 
+  const resetGuessedNumbersList = () => {
+    setGuessedNumbers([]);
+  };
+
   const confirmInputHandler = () => {
     const chosenNumber = parseInt(enteredNumber);
 
@@ -54,9 +66,14 @@ export default function GamePage() {
 
     console.log(randomNumber);
 
-    if (chosenNumber === randomNumber) console.log('You guessed it!!!!!');
+    if (chosenNumber === randomNumber) {
+      resetInputHandler();
+      resetGuessedNumbersList();
+      return navigation.navigate('GameOverPage' as never);
+    }
 
     addGuessedNumber(chosenNumber);
+    resetInputHandler();
   };
 
   return (
