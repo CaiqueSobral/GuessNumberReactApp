@@ -16,7 +16,7 @@ export function App() {
         imageStyle={{ opacity: 0.15 }}
       >
         <SafeAreaProvider>
-          <HomePage />
+          <GamePage />
         </SafeAreaProvider>
       </ImageBackground>
     </LinearGradient>
